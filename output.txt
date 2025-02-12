@@ -1,0 +1,103 @@
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Tue Dec 17 15:37:37 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Dec 19 08:17:31 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Dec 19 08:17:59 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Dec 19 08:39:14 2024
+system restarted at:  Thu Dec 19 08:40:14 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Dec 19 10:25:21 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Dec 19 10:28:19 2024
+system restarted at:  Thu Dec 19 10:28:28 2024
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Jan  2 07:34:55 2025
+system restarted at:  Thu Jan  2 07:35:08 2025
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Jan  2 10:14:20 2025
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Jan  9 09:57:45 2025
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Jan 16 08:57:04 2025
+system restarted at:  Thu Jan 16 09:00:15 2025
+IP Address: 255.255.255.255
+MAC Address: FF:FF:FF:FF:FF:FF
+Port Number: 65535
+Threats Detected:
+  - Port Scanning
+  - ARP Spoofing
+  - DoS Attack
+  - DDoS Attack
+This was detected at:  Thu Jan 30 13:54:43 2025
