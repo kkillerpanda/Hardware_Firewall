@@ -1,0 +1,7 @@
+module PHY_COMPONENT
+(
+input wire CLK,
+input [1:0] RX_IN, 
+output [1:0] TX_OUT
+);
+endmodule 

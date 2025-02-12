@@ -1,0 +1,74 @@
+// module dos_attack_detector (
+//     input wire clk,
+//     input wire rst,
+//     input wire rx_valid,       // Valid signal for received data
+//     output reg alert           // DoS attack alert
+// );
+
+//     reg [31:0] packet_count;   // Packet counter
+//     reg [31:0] timer;          // Timer for detection window
+
+//     always @(posedge clk or negedge rst) begin
+//         if (!rst) begin
+//             packet_count <= 32'b0;
+//             timer <= 32'b0;
+//             alert <= 1'b0;
+//         end else begin
+//             // Increment timer
+//             timer <= timer + 1;
+
+//             if (rx_valid) begin
+//                 packet_count <= packet_count + 1;  // Increment packet count on valid packet reception
+//             end
+
+//             // Check if packet rate exceeds threshold (e.g., 1000 packets in 1 second)
+//             if (packet_count > 1000 && timer < 32'd50000000) begin
+//                 alert <= 1'b1;  // DoS attack detected
+//             end
+
+//             // Reset packet count and timer periodically (e.g., every 1 second)
+//             if (timer >= 32'd50000000) begin
+//                 timer <= 32'b0;
+//                 packet_count <= 32'b0;
+//                 alert <= 1'b0;  // Reset alert after each time window
+//             end
+//         end
+//     end
+
+// endmodule
+
+module ddos_check (
+    input wire clk,
+    input wire rst_n,
+    input wire [31:0] source_ip,              // Source IP address from the packet
+    output reg threat_detected                 // Signal indicating a threat has been detected
+);
+    // Parameters for threshold and tracking
+    parameter DDoS_THRESHOLD = 100; // Packets per time period
+    reg [31:0] ip_count [0:65535]; // Count of packets for each IP
+    reg [31:0] last_checked_time;   // Last checked time (could be a simple counter)
+    integer i;
+
+    // Reset logic
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            for (i = 0; i < 65536; i = i + 1) begin
+                ip_count[i] <= 32'b0; // Reset all IP counts
+            end
+            last_checked_time <= 32'b0;
+            threat_detected <= 1'b0; 
+        end else begin
+            // Increment packet count for the source IP
+            ip_count[source_ip[15:0]] <= ip_count[source_ip[15:0]] + 1;
+
+            // Check if packet count exceeds the DDoS threshold
+            if (ip_count[source_ip[15:0]] > DDoS_THRESHOLD) begin
+                threat_detected <= 1'b1; // Detected DDoS attack
+            end else begin
+                threat_detected <= 1'b0; // No threat detected
+            end
+
+            // Logic to reset the counts periodically could be added here
+        end
+    end
+endmodule

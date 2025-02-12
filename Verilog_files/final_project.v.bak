@@ -1,0 +1,17 @@
+module tempname
+( 
+input refclk,
+input [1:0] packet_IN_OUTSIDE, 
+output [1:0] packet_OUT_OUTSIDE,
+input [1:0] packet_IN_INSIDE,
+output [1:0] packet_OUT_INSIDE,
+output clk_PHY_OUTSIDE,
+output clk_PHY_INSIDE
+);
+
+assign clk_PHY_INSIDE = refclk;
+assign clk_PHY_OUTSIDE = refclk;
+
+
+
+endmodule

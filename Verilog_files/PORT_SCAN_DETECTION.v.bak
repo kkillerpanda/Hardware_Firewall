@@ -1,0 +1,61 @@
+module port_scanning_detector (
+    input wire clk,
+    input wire rst,
+    input wire [15:0] dest_port,  // Destination port of the received packet
+    input wire rx_valid,          // Valid signal for received data
+    output reg alert              // Port scanning alert
+);
+
+    reg [15:0] port_table [0:15];  // A table of recently accessed ports
+    reg [3:0] port_count;          // Counter for unique ports
+    reg [31:0] timer;              // Timer for detecting scan within a time window
+
+    integer i;
+
+    always @(posedge clk or negedge rst) begin
+        if (rst) begin
+            port_count <= 4'b0;
+            alert <= 1'b0;
+            timer <= 32'b0;
+            for (i = 0; i < 16; i = i + 1) begin
+                port_table[i] <= 16'b0;
+            end
+        end else begin
+            // Increment the timer for time window
+            timer <= timer + 1;
+
+            if (rx_valid) begin
+                // Reset alert by default
+                alert <= 1'b0;
+                
+                // Check if the port is already recorded
+                for (i = 0; i < 16; i = i + 1) begin
+                    if (port_table[i] == dest_port) begin
+                        // Port already accessed, no need to record again
+                       
+                    end else if (port_table[i] == 16'b0) begin
+                        // New port accessed, record it
+                        port_table[i] <= dest_port;
+                        port_count <= port_count + 1;
+                       
+                    end
+                end
+            end
+
+            // Check for port scanning condition
+            if (port_count > 4 && timer < 32'd500000) begin
+                alert <= 1'b1;  // Port scanning detected if more than 4 ports accessed within time window
+            end
+
+            // Reset timer and port count periodically (e.g., every 500ms)
+            if (timer >= 32'd500000) begin
+                timer <= 32'b0;
+                port_count <= 4'b0;
+                for (i = 0; i < 16; i = i + 1) begin
+                    port_table[i] <= 16'b0;
+                end
+            end
+        end
+    end
+
+endmodule
